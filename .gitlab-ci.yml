@@ -1,0 +1,16 @@
+image: docker.gettipsi.com:13011/ci-runner:latest
+
+variables:
+  REPO: 'docker.gettipsi.com:13011'
+  TAG_NAME: "docker.gettipsi.com:13011/base_python:$CI_COMMIT_REF_NAME"
+
+
+stages:
+  - base_python
+
+base_python:
+  stage: base_python
+  except:
+    - schedules
+  script:
+    - tipsi_ci_script -r $REPO -p base_python --push-branches=master,wip_branch --docker-file=base_python/Dockerfile

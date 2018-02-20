@@ -1,0 +1,29 @@
+output:
+  logstash:
+    enabled: true
+    hosts:
+      - '${LOGSTASH_HOST:192.168.88.34}:${LOGSTASH_PORT:13002}'
+    ssl:
+      verification_mode: none
+    timeout: 15
+    index: fbeat
+
+filebeat:
+  prospectors:
+    - paths:
+        - "${LOG_DIR}/*.json_log"
+      fields:
+        source_type: python_json
+      fields_under_root: true
+    - paths:
+        - '${LOG_DIR}/*.log'
+        - '/var/log/supervisor/supervisord.log'
+        - '/var/log/supervisor/*stdout*.log'
+        - '/var/log/supervisor/*stderr*.log'
+      fields:
+        static: true
+        source_type: raw
+      fields_under_root: true
+fields:
+  CONTAINER_TYPE: '${CONTAINER_TYPE}'
+fields_under_root: true
