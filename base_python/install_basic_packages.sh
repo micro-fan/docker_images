@@ -8,6 +8,7 @@ apt-get install -y --no-install-recommends \
     git \
     iproute2 \
     iputils-ping \
+    less \
     libdpkg-perl \
     lsof \
     make \
