@@ -25,4 +25,5 @@ RUN ./prepare_environment.py
 # setup logdir and declare as volume
 # run default filebeat > logs from default log dir
 VOLUME $LOG_DIR
+VOLUME /filebeat
 CMD /bootstrap_env/bin/python /bootstrap/bootstrap.py

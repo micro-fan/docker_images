@@ -9,6 +9,7 @@ output:
     index: fbeat
 
 filebeat:
+  registry_file: /filebeat/registry.json
   prospectors:
     - paths:
         - "${LOG_DIR}/*.json_log"
