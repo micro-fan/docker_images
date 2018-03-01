@@ -1,4 +1,4 @@
-TAG_NAME ?= wip_branch
+TAG_NAME ?= staging
 
 test:
 	docker build -f base_python/Dockerfile . -t base_python
@@ -7,3 +7,7 @@ test:
 
 build_base_python:
 	docker build -f base_python/Dockerfile . -t docker.gettipsi.com:13011/base_python:$(TAG_NAME)
+
+build_hub_image:
+	docker build -f base_python/Dockerfile . -t tipsi/base_python:$(TAG_NAME)
+	docker push tipsi/base_python:$(TAG_NAME)
