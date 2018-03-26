@@ -13,7 +13,6 @@ def run(cmd):
 def supervisor_link(local_path):
     base_name = os.path.basename(local_path)
     dst = f'/etc/supervisor/conf.d/{base_name}'
-    assert not os.path.exists(dst), f'Dst already exists: {dst}'
     shutil.copy(local_path, dst)
 
 
