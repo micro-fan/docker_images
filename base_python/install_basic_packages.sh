@@ -1,4 +1,13 @@
+set -e
 apt-get update
+apt-get install -y  --no-install-recommends \
+        curl \
+        software-properties-common
+
+curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+add-apt-repository 'deb http://apt.postgresql.org/pub/repos/apt/ zesty-pgdg main'
+apt-get update
+
 apt-get install -y --no-install-recommends \
     awscli \
     binutils \
@@ -13,14 +22,13 @@ apt-get install -y --no-install-recommends \
     lsof \
     make \
     net-tools \
-    postgresql-client \
+    postgresql-client-10 \
     python3-dev python3-pip python3-venv \
-    software-properties-common \
     sudo \
     supervisor \
     vim
 
-pip3 install -U pip setuptools wheel
+pip3 install -U pip==9.* setuptools wheel
 pip3 install pillow uwsgi psycopg2-binary
 
 curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
