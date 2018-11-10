@@ -10,4 +10,6 @@ build_base_python:
 
 build_hub_image:
 	docker build -f Dockerfile.base_python . -t tipsi/base_python:$(TAG_NAME)
+
+push_hub_image: build_hub_image
 	docker push tipsi/base_python:$(TAG_NAME)

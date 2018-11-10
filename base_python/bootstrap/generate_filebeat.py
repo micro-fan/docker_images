@@ -6,8 +6,8 @@ from tipsi_tools.python import rel_path
 
 
 DEFAULTS = {
-    'LOGSTASH_HOST': '192.168.88.34',
-    'LOGSTASH_PORT': '13002',
+    'LOGSTASH_HOST': 'logstash',
+    'LOGSTASH_PORT': '5044',
     'HOST_TYPE': 'local',
 }
 
@@ -76,6 +76,10 @@ def main():
     merge_name = os.environ.get('MERGE_FILEBEAT')
     if merge_name and os.path.exists(merge_name):
         merge_filebeat(merge_name, conf)
+
+    if os.environ.get('FILEBEAT_NO_SSL'):
+        del conf['output']['logstash']['ssl']
+
     with open('/filebeat.yml', 'w') as f:
         yaml.dump(conf, f)
 
