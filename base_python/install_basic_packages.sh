@@ -1,7 +1,10 @@
 set -e
+export DEBIAN_FRONTEND=noninteractive
+
 apt-get update
 apt-get install -y  --no-install-recommends \
         curl \
+        gpg-agent \
         software-properties-common
 
 curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
