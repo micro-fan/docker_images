@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import os
+import shutil
 import subprocess
 
 env = '/bootstrap_env'
@@ -18,6 +20,9 @@ def main():
     run(f'python3 -m venv {env}')
     run(f'{pip} install wheel')
     run(f'{pip} install -r requirements.txt')
+    os.makedirs('/etc/supervisor/conf.d/', exist_ok=True)
+    os.makedirs('/var/log/supervisor/', exist_ok=True)
+    shutil.copy('/bootstrap/supervisord.conf', '/etc/supervisor/supervisord.conf')
 
 
 if __name__ == '__main__':
