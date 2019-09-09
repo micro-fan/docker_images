@@ -29,6 +29,7 @@ apt-get install -y --no-install-recommends \
     iputils-ping \
     less \
     libdpkg-perl \
+    libpcre3-dev \
     lsof \
     make \
     net-tools \
