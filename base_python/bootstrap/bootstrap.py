@@ -3,7 +3,7 @@ import os
 import shutil
 import subprocess
 
-from tipsi_tools.python import rel_path
+from fan_tools.python import rel_path
 
 
 def run(cmd):

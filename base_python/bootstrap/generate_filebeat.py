@@ -2,7 +2,7 @@
 import os
 import yaml
 
-from tipsi_tools.python import rel_path
+from fan_tools.python import rel_path
 
 
 DEFAULTS = {
@@ -11,7 +11,7 @@ DEFAULTS = {
     'HOST_TYPE': 'local',
 }
 
-OPTIONAL_PARAMS = ['TIPSI_CONFIG', 'TIPSI_BRANCH']
+OPTIONAL_PARAMS = ['DEPLOYMENT_CONFIG', 'DEPLOYMENT_BRANCH']
 
 
 def get_param(name):
@@ -20,7 +20,7 @@ def get_param(name):
 
 def get_fields():
     out = {}
-    for field in ['HOST_TYPE', 'TIPSI_CONFIG', 'TIPSI_BRANCH']:
+    for field in ['HOST_TYPE', 'DEPLOYMENT_CONFIG', 'DEPLOYMENT_BRANCH']:
         value = get_param(field)
         if value is None:
             # skip OPTIONAL_PARAMS

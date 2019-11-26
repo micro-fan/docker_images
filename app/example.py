@@ -1,7 +1,7 @@
 import logging
 import time
 
-from tipsi_tools.tipsi_logging import setup_logger
+from fan_tools.fan_logging import setup_logger
 
 setup_logger("some_name")
 log = logging.getLogger("example")

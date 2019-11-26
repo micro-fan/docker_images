@@ -6,7 +6,7 @@ test:
 	docker run --env-file=env.list --rm=true -it base_app /bin/bash
 
 build_hub_image:
-	docker build -f Dockerfile.base_python . -t tipsi/base_python:$(TAG_NAME)
+	docker build -f Dockerfile.base_python . -t fan0/base_python:$(TAG_NAME)
 
 push_hub_image: build_hub_image
-	docker push tipsi/base_python:$(TAG_NAME)
+	docker push fan0/base_python:$(TAG_NAME)
