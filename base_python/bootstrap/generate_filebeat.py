@@ -77,7 +77,7 @@ def main():
     if merge_name and os.path.exists(merge_name):
         merge_filebeat(merge_name, conf)
 
-    if os.environ.get('FILEBEAT_NO_SSL'):
+    if not os.environ.get('FILEBEAT_ENABLE_SSL'):
         del conf['output']['logstash']['ssl']
 
     with open('/filebeat.yml', 'w') as f:
