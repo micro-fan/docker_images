@@ -10,8 +10,8 @@ output:
     index: fbeat
 
 filebeat:
-  registry_file: /filebeat/registry.json
-  prospectors:
+  registry.path: /filebeat/registry.json
+  inputs:
     - paths:
         - "${LOG_DIR}/*.json_log"
       fields:
