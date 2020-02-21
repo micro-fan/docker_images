@@ -11,7 +11,7 @@ apt-get install -y  --no-install-recommends \
 curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 add-apt-repository 'deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main'
 curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-add-apt-repository "deb https://artifacts.elastic.co/packages/6.x/apt stable main"
+add-apt-repository "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
