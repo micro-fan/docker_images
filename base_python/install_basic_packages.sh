@@ -9,7 +9,7 @@ apt-get install -y  --no-install-recommends \
         software-properties-common
 
 curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-add-apt-repository 'deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main'
+add-apt-repository 'deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main'
 curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 add-apt-repository "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -33,11 +33,11 @@ apt-get install -y --no-install-recommends \
     lsof \
     make \
     net-tools \
-    postgresql-client-10 \
+    postgresql-client-12 \
     python3-dev python3-venv python3-pip \
     vim
 
 update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
 update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
-python3 -m pip install -U pip==9.* setuptools wheel supervisor
+python3 -m pip install -U setuptools wheel supervisor
 python3 -m pip install pillow uwsgi psycopg2-binary

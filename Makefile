@@ -1,7 +1,7 @@
 TAG_NAME ?= staging
 
 
-.img.built: Dockerfile.base_python app/Dockerfile
+.img.built: Dockerfile.base_python app/Dockerfile base_python/install_basic_packages.sh
 	docker build -f Dockerfile.base_python . -t base_python
 	docker build -f app/Dockerfile . -t base_app
 	touch .img.built
