@@ -1,8 +1,12 @@
 TAG_NAME ?= staging
 
-test:
+
+.img.built: Dockerfile.base_python app/Dockerfile
 	docker build -f Dockerfile.base_python . -t base_python
 	docker build -f app/Dockerfile . -t base_app
+	touch .img.built
+
+test: .img.built
 	docker run --env-file=env.list --rm=true -it base_app /bin/bash
 
 build_hub_image:
