@@ -1,4 +1,5 @@
 TAG_NAME ?= staging
+GHCR_NAME ?= ghcr.io/micro-fan/python:$(TAG_NAME)
 
 
 .img.built: Dockerfile.base_python app/Dockerfile base_python/install_basic_packages.sh
@@ -14,3 +15,12 @@ build_hub_image:
 
 push_hub_image: build_hub_image
 	docker push fan0/base_python:$(TAG_NAME)
+
+
+build_ghcr_image:
+	docker build -f Dockerfile.base_python . -t $(GHCR_NAME)
+
+
+push_ghcr_image: build_ghcr_image
+	@echo Push: $(GHCR_NAME)
+	docker push $(GHCR_NAME)
