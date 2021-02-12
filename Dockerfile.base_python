@@ -1,7 +1,7 @@
 FROM ubuntu:focal AS fan_base
 
 MAINTAINER Kirill Pinchuk <cybergrind@gmail.com>
-RUN echo '20 Feb 2018'
+RUN echo '13 Feb 2021'
 
 ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8

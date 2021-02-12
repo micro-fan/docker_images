@@ -14,6 +14,7 @@ curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add
 add-apt-repository "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+add-apt-repository ppa:deadsnakes/ppa
 
 apt-get update && apt-get install -y --no-install-recommends filebeat docker-ce
 
@@ -33,11 +34,15 @@ apt-get install -y --no-install-recommends \
     lsof \
     make \
     net-tools \
-    postgresql-client-12 \
-    python3-dev python3-venv python3-pip \
+    postgresql-client-13 \
     vim
 
-update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
-update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+apt -y install python3.9 python3.9-venv python3.9-dev
+update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.9 get-pip.py
+
 python3 -m pip install -U setuptools wheel supervisor
 python3 -m pip install pillow uwsgi psycopg2-binary
