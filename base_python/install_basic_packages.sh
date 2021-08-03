@@ -19,7 +19,6 @@ add-apt-repository ppa:deadsnakes/ppa
 apt-get update && apt-get install -y --no-install-recommends filebeat docker-ce
 
 apt-get install -y --no-install-recommends \
-    awscli \
     binutils \
     curl \
     dnsutils \
@@ -45,4 +44,4 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3.9 get-pip.py
 
 python3 -m pip install -U setuptools wheel supervisor
-python3 -m pip install pillow uwsgi psycopg2-binary fan-tools
+python3 -m pip install pillow uwsgi psycopg2-binary fan-tools awscli==1.20.13
