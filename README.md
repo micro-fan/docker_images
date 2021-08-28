@@ -41,9 +41,3 @@ RUN mkdir -p $LOG_DIR && python3 backend/manage.py collectstatic --noinput
 ```
 
 ### Options
-
-`LOGSTASH_HOST` - default: logstash
-
-`LOGSTASH_PORT` - default: 5044
-
-`FILEBEAT_ENABLE_SSL` - enable ssl mode for filebeat

@@ -1,7 +1,5 @@
 FROM base_python
 
-ENV MERGE_FILEBEAT filebeat.yml
-
 ADD app/ /app/
 WORKDIR /app
 

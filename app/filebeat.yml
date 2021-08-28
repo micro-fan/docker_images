@@ -1,6 +1,0 @@
-filebeat:
-  prospectors:
-    - paths:
-        - "${LOG_DIR}/plain/*.log"
-      fields:
-        source_type: raw

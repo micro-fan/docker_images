@@ -23,8 +23,7 @@ def main():
     SUPERVISOR_CONFIG = os.environ.get('SUPERVISOR_CONFIG')
     supervisor_link(SUPERVISOR_CONFIG)
     supervisor_link(rel_path('supervisor-bootstrap.conf'))
-    run(rel_path('./generate_filebeat.py'))
-    run(f'supervisord -n')
+    run('supervisord -n')
 
 
 if __name__ == '__main__':
