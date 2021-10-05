@@ -1,5 +1,6 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
+PY_VERSION=3.10
 
 apt-get update
 apt-get install -y  --no-install-recommends \
@@ -34,12 +35,11 @@ apt-get install -y --no-install-recommends \
     postgresql-client-13 \
     vim
 
-apt -y install python3.9 python3.9-venv python3.9-dev
-update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
-update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+apt -y install python${PY_VERSION} python${PY_VERSION}-venv python${PY_VERSION}-dev
+update-alternatives --install /usr/bin/python python /usr/bin/python${PY_VERSION} 1
+update-alternatives --install /usr/bin/python3 python3 /usr/bin/python${PY_VERSION} 1
 
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3.9 get-pip.py
+python3 -m ensurepip --upgrade
 
 python3 -m pip install -U setuptools wheel supervisor
 python3 -m pip install pillow uwsgi psycopg2-binary fan-tools==3.* awscli==1.20.13 docker-compose
