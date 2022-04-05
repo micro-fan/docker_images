@@ -6,7 +6,6 @@ on:
       - '*'
 
 jobs:
-
   save-container:
     name: create and save container
     runs-on: ubuntu-20.04
@@ -20,3 +19,4 @@ jobs:
         password: ${{ secrets.GHCR_TOKEN }}
     - run: docker pull ghcr.io/micro-fan/python:latest || true
     - run: TAG_NAME=${{ env.RELEASE_VERSION }} make push_ghcr_image
+    - run: TAG_NAME=${{ env.RELEASE_VERSION }}-helm BUILD_HELM=1 make push_ghcr_image
