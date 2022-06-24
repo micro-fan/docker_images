@@ -48,4 +48,15 @@ cd /usr/local/bin/
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens
 curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx
-chmod a+x kubectl kubectx kubens
+
+XH_VERSION=v0.16.1
+XH_BASE=xh-${XH_VERSION}-x86_64-unknown-linux-musl
+XH_URL=https://github.com/ducaale/xh/releases/download/${XH_VERSION}/${XH_BASE}.tar.gz
+
+curl -L $XH_URL -o xh.tar.gz
+tar xzf xh.tar.gz
+mv $XH_BASE/xh /usr/local/bin/.
+rm -rf xh.tar.gz $XH_BASE
+
+
+chmod a+x kubectl kubectx kubens xh
