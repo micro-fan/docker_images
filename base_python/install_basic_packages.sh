@@ -45,7 +45,9 @@ python3 -m pip install -U setuptools wheel supervisor
 python3 -m pip install pillow uwsgi psycopg2-binary fan-tools==3.* awscli==1.20.13 docker-compose
 
 cd /usr/local/bin/
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+KUBE_RELEASE=v1.22.11
+curl -LO "https://dl.k8s.io/release/${KUBE_RELEASE}/bin/linux/amd64/kubectl"
 curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens
 curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx
 
