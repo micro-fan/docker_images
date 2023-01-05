@@ -25,11 +25,6 @@ jobs:
         password: ${{ secrets.GHCR_TOKEN }}
     - run: docker pull ghcr.io/micro-fan/python:latest || true
     - run: >
-        PY_VERSION=${{ matrix.py_version }}
+        PY_VERSION=python${{ matrix.py_version }}
         TAG_NAME=${{ env.RELEASE_VERSION }}-py${{ matrix.py_version }}
-        make push_ghcr_image
-    - run: >
-        BUILD_HELM=1
-        PY_VERSION=${{ matrix.py_version }}
-        TAG_NAME=${{ env.RELEASE_VERSION }}-py${{matrix.py_version}}-helm
         make push_ghcr_image

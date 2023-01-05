@@ -24,11 +24,22 @@ jobs:
         password: ${{ secrets.GHCR_TOKEN }}
     - run: docker pull ghcr.io/micro-fan/python:latest || true
     - run: >
-        PY_VERSION=${{ matrix.py_version }}
+        PY_VERSION=python${{ matrix.py_version }}
         TAG_NAME=latest-py${{ matrix.py_version }}
         make push_ghcr_image
+
+  default-container:
+    name: assemble default container
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GHCR_TOKEN }}
+    - run: docker pull ghcr.io/micro-fan/python:latest || true
     - run: >
-        BUILD_HELM=1
-        PY_VERSION=${{ matrix.py_version }}
-        TAG_NAME=latest-py${{ matrix.py_version }}-helm
+        PY_VERSION=python3.11
+        TAG_NAME=latest
         make push_ghcr_image

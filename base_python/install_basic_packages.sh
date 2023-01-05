@@ -26,6 +26,7 @@ apt-get install -y --no-install-recommends \
     git \
     iproute2 \
     iputils-ping \
+    jq \
     less \
     libdpkg-perl \
     libpcre3-dev \
@@ -47,7 +48,7 @@ python3 -m pip install pillow uwsgi psycopg2-binary fan-tools==3.* awscli==1.20.
 
 cd /usr/local/bin/
 
-KUBE_RELEASE=v1.22.11
+KUBE_RELEASE=v1.23.15
 curl -LO "https://dl.k8s.io/release/${KUBE_RELEASE}/bin/linux/amd64/kubectl"
 curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens
 curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx

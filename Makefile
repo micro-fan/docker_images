@@ -1,6 +1,6 @@
 TAG_NAME ?= staging
 GHCR_NAME ?= ghcr.io/micro-fan/python:$(TAG_NAME)
-BUILD_HELM ?= 0
+BUILD_HELM ?= 1
 PY_VERSION ?= python3.9
 
 
