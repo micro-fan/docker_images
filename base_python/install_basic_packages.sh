@@ -21,6 +21,7 @@ apt-get install -y --no-install-recommends \
     binutils \
     curl \
     dnsutils \
+    fd-find \
     gcc \
     gdal-bin \
     git \
@@ -35,6 +36,8 @@ apt-get install -y --no-install-recommends \
     net-tools \
     postgresql-client-13 \
     vim
+
+ln /usr/bin/fdfind /usr/bin/fd
 
 apt -y install ${PY_VERSION} ${PY_VERSION}-venv ${PY_VERSION}-dev
 update-alternatives --install /usr/bin/python python /usr/bin/${PY_VERSION} 1
