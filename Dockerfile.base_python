@@ -9,6 +9,7 @@ ENV LC_ALL C.UTF-8
 ENV SUPERVISOR_CONFIG supervisor-app.conf
 ENV LOG_DIR /var/log/fan_logs
 ENV PYTHONPATH=.
+ARG PY_VERSIONg=python3.9
 
 # Redefine next variables
 ENV CONTAINER_TYPE base_python
