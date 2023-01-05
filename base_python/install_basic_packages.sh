@@ -10,7 +10,7 @@ apt-get install -y  --no-install-recommends \
         software-properties-common
 
 curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-add-apt-repository 'deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main'
+add-apt-repository 'deb http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main'
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 add-apt-repository ppa:deadsnakes/ppa
