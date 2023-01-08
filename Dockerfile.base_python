@@ -24,7 +24,4 @@ COPY base_python/bootstrap/ /bootstrap
 WORKDIR /bootstrap
 RUN ./prepare_environment.py
 
-# setup supervisor
-# setup logdir and declare as volume
-VOLUME $LOG_DIR
 CMD /bootstrap_env/bin/python /bootstrap/bootstrap.py
