@@ -47,7 +47,7 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ${PY_VERSION} get-pip.py
 
 python3 -m pip install -U setuptools wheel supervisor
-python3 -m pip install pillow uwsgi psycopg2-binary fan-tools==3.* awscli==1.20.13 docker-compose
+python3 -m pip install pillow uwsgi psycopg2-binary fan-tools==3.* awscli~=1.27.164 docker-compose
 
 cd /usr/local/bin/
 
