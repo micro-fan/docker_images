@@ -51,10 +51,10 @@ python3 -m pip install pillow uwsgi psycopg2-binary fan-tools==3.* awscli~=1.27.
 
 cd /usr/local/bin/
 
-KUBE_RELEASE=v1.23.15
+KUBE_RELEASE=v1.26.6
 curl -LO "https://dl.k8s.io/release/${KUBE_RELEASE}/bin/linux/amd64/kubectl"
-curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens
-curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx
+curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubens
+curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx
 
 XH_VERSION=v0.16.1
 XH_BASE=xh-${XH_VERSION}-x86_64-unknown-linux-musl
