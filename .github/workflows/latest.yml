@@ -17,11 +17,11 @@ jobs:
     name: create and save container
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - uses: docker/login-action@v1
+    - uses: actions/checkout@v4
+    - uses: docker/login-action@v3
       with:
         registry: ghcr.io
-        username: ${{ github.repository_owner }}
+        username: ${{ github.actor }}
         password: ${{ secrets.GHCR_TOKEN }}
     - run: docker pull ghcr.io/micro-fan/python:latest || true
     - run: >
@@ -33,8 +33,8 @@ jobs:
     name: assemble default container
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - uses: docker/login-action@v1
+    - uses: actions/checkout@v4
+    - uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
