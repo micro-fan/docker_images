@@ -6,7 +6,6 @@ RUN echo '30 Jun 2023'
 ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
-ENV SUPERVISOR_CONFIG supervisor-app.conf
 ENV LOG_DIR /var/log/fan_logs
 ENV PYTHONPATH=.
 ARG PY_VERSION=python3.9
@@ -19,9 +18,3 @@ ARG BUILD_HELM=1
 COPY base_python/*.sh ./
 RUN ./install_basic_packages.sh
 RUN ./install_helm_packages.sh
-
-COPY base_python/bootstrap/ /bootstrap
-WORKDIR /bootstrap
-RUN ./prepare_environment.py
-
-CMD /bootstrap_env/bin/python /bootstrap/bootstrap.py

@@ -25,7 +25,6 @@ ENV PGPORT=5432
 ENV PGDATABASE=web_database
 ENV CONTAINER_TYPE=web
 ENV LOG_DIR=/var/log/web_logs
-ENV SUPERVISOR_CONFIG=infra/web/supervisor-app.conf
 ENV PYTHONPATH=/home/code/backend:$PYTHONPATH
 
 ADD backend/requirements.txt /home/code/backend/requirements.txt

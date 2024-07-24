@@ -43,15 +43,15 @@ apt -y install ${PY_VERSION} ${PY_VERSION}-venv ${PY_VERSION}-dev
 update-alternatives --install /usr/bin/python python /usr/bin/${PY_VERSION} 1
 update-alternatives --install /usr/bin/python3 python3 /usr/bin/${PY_VERSION} 1
 
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-${PY_VERSION} get-pip.py
-
-python3 -m pip install -U setuptools wheel supervisor
-python3 -m pip install pillow uwsgi psycopg2-binary fan-tools==3.* awscli~=1.27.164 docker-compose
+python3 -m ensurepip
+python3 -m pip uninstall --root-user-action=ignore -y six
+python3 -m pip install --root-user-action=ignore fan-tools==3.* awscli>=1.27.164 six
 
 cd /usr/local/bin/
 
-KUBE_RELEASE=v1.26.6
+COMPOSE_VERSION=v2.29.1
+curl -SL https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+KUBE_RELEASE=v1.29.7
 curl -LO "https://dl.k8s.io/release/${KUBE_RELEASE}/bin/linux/amd64/kubectl"
 curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubens
 curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx
