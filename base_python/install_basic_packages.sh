@@ -62,5 +62,8 @@ tar xzf xh.tar.gz
 mv $XH_BASE/xh /usr/local/bin/.
 rm -rf xh.tar.gz $XH_BASE
 
+curl -LsSf https://astral.sh/uv/0.8.5/install.sh | sh
+cp ~/.local/bin/uv /usr/bin/.
+
 
 chmod a+x kubectl kubectx kubens xh
