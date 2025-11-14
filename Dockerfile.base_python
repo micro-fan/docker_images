@@ -1,18 +1,18 @@
-FROM ubuntu:focal AS fan_base
+FROM ubuntu:jammy AS fan_base
 
 MAINTAINER Kirill Pinchuk <cybergrind@gmail.com>
-RUN echo '30 Jun 2023'
+RUN echo '11 Nov 2025'
 
-ENV LANG C.UTF-8
-ENV LANGUAGE C.UTF-8
-ENV LC_ALL C.UTF-8
-ENV LOG_DIR /var/log/fan_logs
+ENV LANG=C.UTF-8
+ENV LANGUAGE=C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV LOG_DIR=/var/log/fan_logs
 ENV PYTHONPATH=.
 ARG PY_VERSION=python3.9
 
 # Redefine next variables
-ENV CONTAINER_TYPE base_python
-ENV LOGSTASH_HOST localhost
+ENV CONTAINER_TYPE=base_python
+ENV LOGSTASH_HOST=localhost
 
 ARG BUILD_HELM=1
 COPY base_python/*.sh ./

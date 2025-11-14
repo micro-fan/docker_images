@@ -40,8 +40,9 @@ apt -y install ${PY_VERSION} ${PY_VERSION}-venv ${PY_VERSION}-dev
 update-alternatives --install /usr/bin/python python /usr/bin/${PY_VERSION} 1
 update-alternatives --install /usr/bin/python3 python3 /usr/bin/${PY_VERSION} 1
 
-python3 -m ensurepip
-python3 -m pip uninstall --root-user-action=ignore -y six
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+${PY_VERSION} get-pip.py
+
 python3 -m pip install --root-user-action=ignore fan-tools==3.* awscli>=1.27.164 six
 
 cd /usr/local/bin/
@@ -62,7 +63,7 @@ tar xzf xh.tar.gz
 mv $XH_BASE/xh /usr/local/bin/.
 rm -rf xh.tar.gz $XH_BASE
 
-curl -LsSf https://astral.sh/uv/0.8.5/install.sh | sh
+curl -LsSf https://astral.sh/uv/0.9.5/install.sh | sh
 cp ~/.local/bin/uv /usr/bin/.
 
 
