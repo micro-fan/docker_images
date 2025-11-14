@@ -43,7 +43,7 @@ update-alternatives --install /usr/bin/python3 python3 /usr/bin/${PY_VERSION} 1
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ${PY_VERSION} get-pip.py
 
-python3 -m pip install --root-user-action=ignore fan-tools==3.* awscli>=1.27.164 six
+python3 -m pip install --root-user-action=ignore fan-tools==3.* awscli six
 
 cd /usr/local/bin/
 
